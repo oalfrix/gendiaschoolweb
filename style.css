@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+body {
+  background: #fff;
+}
+
 .intro-header {
   min-height: 100vh;
   width: 100%;
@@ -818,4 +822,131 @@ ul {
   margin-top: 10px;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
+}
+
+/*========================Count Section=======================*/
+.count-section {
+  background: white;
+  margin: 70px;
+}
+
+.count-container {
+  width: 80%;
+  max-width: 1000px; /* Adjust maximum width */
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Distribute items evenly */
+}
+
+.count-stat {
+  flex: 1 1 30px; /* Adjust item width */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.bi-count {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  margin-right: 5px;
+  color: #24262b;
+  font-size: 40px;
+}
+
+.count-number {
+  font-size: 36px;
+  font-weight: bold;
+  color: #e91e63;
+}
+
+.count-description {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0000ff;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 600px) {
+  .count-container {
+    width: 90%;
+  }
+
+  .count-stat {
+    flex-basis: 100%; /* Make items full width on smaller screens */
+  }
+
+  .bi-count {
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+    color: #24262b;
+    font-size: 40px;
+    margin-bottom: 10px;
+  }
+
+  .count-number {
+    font-size: 24px;
+  }
+
+  .count-description {
+    font-size: 14px;
+  }
+}
+
+.mission-statement {
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+  background: white;
+}
+
+.mission-h1 {
+  color: black;
+  margin: 10px;
+  margin-top: 50px;
+  font-size: 10px;
+  font-style: italic;
+  font-weight: 600;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.mission-h2 {
+  color: #24262b;
+  margin: 5px;
+  font-weight: 750;
+  font-family: monospace;
+}
+
+.mission-body {
+  font-weight: 650;
+  margin: 10px;
+  font-family: Arial;
+  padding: 20px;
+}
+
+.mission-statement .hero-btn {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  font-weight: 650;
+  background-color: #f9004d;
+  border: 1px solid rgb(26, 25, 25);
+  border-radius: 20px;
+  padding: 5px 34px;
+  font-size: 13px;
+  margin: 10px;
+  position: relative;
+  cursor: pointer;
+}
+.mission-statement .hero-btn:hover {
+  border: 1px solid #f44336;
+  background: #ece7e600;
+  transition: 0.9s;
+  color: #000;
 }
