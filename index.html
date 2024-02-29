@@ -211,33 +211,13 @@
 
    <span class="tags"><h5>© CopyRight By Gendia High School 2024</h5></span>
 
+   <div id="scrollToTop" class="scroll-to-top">&#9650;</div>
+   <script src="script.js"></script>
+
     
  <!--=============== MAIN JS ===============-->
  <script src="assets/js/main.js"></script>
-
- <script>
-   var counters = document.querySelectorAll('.counter');
-   var speed = 500; // The lower the number, the faster the count
  
-   counters.forEach(counter => {
-     var updateCount = () => {
-       var target = +counter.getAttribute('data-count');
-       var count = +counter.innerText;
- 
-       var inc = target / speed;
- 
-       if (count < target) {
-         counter.innerText = Math.ceil(count + inc);
-         setTimeout(updateCount, 1);
-       } else {
-         counter.innerText = target;
-       }
-     };
- 
-     updateCount();
-   });
- </script>
-
 <script>
 	var beamer_config = {
 		product_id : 'qSpYIQPS56209' //DO NOT CHANGE: This is your product code on Beamer

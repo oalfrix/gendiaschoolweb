@@ -1,4 +1,28 @@
-// script.js
+//=====================Count Script==========================
+var counters = document.querySelectorAll('.counter');
+var speed = 500; // The lower the number, the faster the count
+
+counters.forEach(counter => {
+  var updateCount = () => {
+    var target = +counter.getAttribute('data-count');
+    var count = +counter.innerText;
+
+    var inc = target / speed;
+
+    if (count < target) {
+      counter.innerText = Math.ceil(count + inc);
+      setTimeout(updateCount, 1);
+    } else {
+      counter.innerText = target;
+    }
+  };
+
+  updateCount();
+});
+
+
+
+//========================Move Up Btn=============================
 document.addEventListener("DOMContentLoaded", function () {
     var scrollToTopButton = document.getElementById("scrollToTop");
 
@@ -72,3 +96,9 @@ document.addEventListener("DOMContentLoaded", function () {
         requestAnimationFrame(scroll);
     }
 });
+
+
+
+
+
+ 
