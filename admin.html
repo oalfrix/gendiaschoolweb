@@ -1,20 +1,68 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Upload to GitHub</title>
+    <title>Upload Images to GitHub</title>
 </head>
 <body>
-    <h1>Upload Files to GitHub</h1>
+    <h1>Upload Images to GitHub</h1>
     <form id="uploadForm">
         <input type="file" id="fileInput" required>
         <button type="button" onclick="uploadFile()">Upload</button>
     </form>
     <p id="status"></p>
 
+    <script>
+        async function uploadFile() {
+            const fileInput = document.getElementById('fileInput');
+            const status = document.getElementById('status');
 
+            if (!fileInput.files.length) {
+                status.textContent = 'No file selected!';
+                return;
+            }
 
-   
+            const file = fileInput.files[0];
+            const reader = new FileReader();
 
-    
+            reader.onload = async () => {
+                const content = btoa(reader.result); // Convert file content to Base64
+
+                const repo = 'gendiaschoolweb'; // Repository name
+                const branch = 'main'; // Branch name
+                const folder = 'images'; // Folder name
+                const path = `${folder}/${file.name}`; // File path in the repository
+                const token = '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'; // GitHub personal access token
+
+                const url = `https://api.github.com/repos/oalfrix/${repo}/contents/${path}`;
+                const message = `Add ${file.name}`;
+
+                try {
+                    const response = await fetch(url, {
+                        method: 'PUT',
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            message: message,
+                            content: content,
+                            branch: branch,
+                        }),
+                    });
+
+                    if (response.ok) {
+                        status.textContent = `File uploaded successfully to ${path}!`;
+                    } else {
+                        const error = await response.json();
+                        status.textContent = `Error: ${error.message}`;
+                    }
+                } catch (error) {
+                    status.textContent = `Error: ${error.message}`;
+                }
+            };
+
+            reader.readAsBinaryString(file);
+        }
+    </script>
 </body>
 </html>
